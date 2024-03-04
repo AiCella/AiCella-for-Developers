@@ -1,0 +1,397 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Modeling Module &#8212; AiCella for Developers 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Visualization Module" href="Visualization.html" />
+    <link rel="prev" title="Modules" href="modules.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Visualization.html" title="Visualization Module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="Modules"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AiCella for Developers 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">Modules</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modeling Module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-Modeling">
+<span id="modeling-module"></span><h1>Modeling Module<a class="headerlink" href="#module-Modeling" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.CV_Evaluate">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">CV_Evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'default':</span> <span class="pre">'default'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outer_folds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_folds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Accuracy':</span> <span class="pre">'accuracy',</span> <span class="pre">'F1</span> <span class="pre">Score':</span> <span class="pre">'f1',</span> <span class="pre">'Precision':</span> <span class="pre">'precision',</span> <span class="pre">'ROC</span> <span class="pre">AUC':</span> <span class="pre">'roc_auc',</span> <span class="pre">'Specificity':</span> <span class="pre">make_scorer(recall_score,</span> <span class="pre">pos_label=0)}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_optim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Accuracy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_process</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.CV_Evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the given model’s performance on the given dataset based on the given set of parameters through Nested K 
+Folds Cross Validation. The resulting performance gives a theoretically best representative evaluation of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset to train and evaluate the model.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Label name of the given dataset.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Model to train and evaluate.</p></li>
+<li><p><strong>parameter</strong> (<em>dictionary</em>) – A set of hyperparameters for the model. If default, call the get_default_param() function to get the pre selected set of parameters for the model.</p></li>
+<li><p><strong>outer_folds</strong> (<em>integer</em>) – number of folds for the outer CV. Outer CV is for performance evaluation. Default is 5 folds.</p></li>
+<li><p><strong>inner_folds</strong> (<em>integer</em>) – number of folds for the inner CV. Inner CV is for hyperparameter tunning. Default is 5 folds.</p></li>
+<li><p><strong>metrics_include</strong> (<em>dictionary</em>) – Mertics to include during the training and evaluation. Default includes Accuracy, ROC AUC, Precision, Specificy, and F1 Score.</p></li>
+<li><p><strong>metrics_optim</strong> (<em>str</em>) – Metric used for optimizing the model. Default is only using Accuracy.</p></li>
+<li><p><strong>print_process</strong> (<em>boolean</em>) – Print the training process or not. Default is True.</p></li>
+<li><p><strong>print_result</strong> (<em>boolean</em>) – Print the CV evaluation result or not. Default is True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting evaluation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.CV_best_parameter">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">CV_best_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_folds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accuracy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'default':</span> <span class="pre">'default'}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.CV_best_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce the best set of hyperparameters through Gridsearch with Cross Validation, given the model and the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Label of the given dataset.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Model to train and search for the best set of hyperparameter.</p></li>
+<li><p><strong>num_folds</strong> (<em>integer</em>) – Number of folds for CV, default is 5.</p></li>
+<li><p><strong>metrics</strong> (<em>string</em>) – Metric used for model optimization, default is Accuracy</p></li>
+<li><p><strong>parameter</strong> (<em>dictionary</em>) – The set of parameters to search from, default set is provided by the get_default_param() function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The best set of hyperparameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.evaluate_model">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">evaluate_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Accuracy':</span> <span class="pre">'accuracy',</span> <span class="pre">'F1</span> <span class="pre">Score':</span> <span class="pre">'f1',</span> <span class="pre">'Precision':</span> <span class="pre">'precision',</span> <span class="pre">'ROC</span> <span class="pre">AUC':</span> <span class="pre">'roc_auc',</span> <span class="pre">'Specificity':</span> <span class="pre">make_scorer(recall_score,</span> <span class="pre">pos_label=0)}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_folds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.evaluate_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the given model on a given dataset. When num_folds is None, Cross Validation is not used, and the whole input dataset is used for evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Dataset to evaluate the model.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Label.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Model to evaluate on the dataset.</p></li>
+<li><p><strong>metrics</strong> (<em>dictionary</em>) – Metrics to include in the evaluation. Default includes Accuracy, ROC AUC, Precision, Specificy, and F1 Score.</p></li>
+<li><p><strong>num_folds</strong> (<em>integer</em>) – Number of folds for the Cross Validation. Default is None, which uses the whole dataset for evaluation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluation results of the model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.extract_model">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">extract_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.extract_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the given model to the current directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – The name of the model file.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – The resulting model to extract.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Files extracted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.fit_pca">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">fit_pca</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.fit_pca" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit PCA on the given feature set with a given number of principle components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>Pandas DataFrame</em>) – Input feature set to fit on.</p></li>
+<li><p><strong>n_components</strong> (<em>integer</em>) – Number of principle components for PCA.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Fitted PCA object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.get_default_param">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_default_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_default_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pre selected set of hyperparameters for the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>sklearn model object</em>) – The input model for the hyperparameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The pre selected set of hyperparameters for the model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.get_explained_variance">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_explained_variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_explained_variance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the percentage of variance explained by a given number of principle components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>Pandas DataFrame</em>) – Input feature set.</p></li>
+<li><p><strong>n_components</strong> (<em>integer</em>) – Number of principle components for PCA.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Percentage % of variance explained by the principle components.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.get_features">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get feature set of the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – label name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Feature set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.get_labels">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get label set of the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – label name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Labels set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.get_model_constructor">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_model_constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_model_constructor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model constructor in sklearn object given the name of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_name</strong> (<em>string</em>) – The name of the model.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Model object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.get_param_preset">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_param_preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_param_preset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the hyperparameter preset of the input model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> (<em>sklearn model object</em>) – The model you want to get hyperparameter preset for.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The hyperparameter preset for the model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.load_model">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a pretrained sklearn model file, read the model and load it into your assigned variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – Name of the model file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The pretrained model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.pca_transform">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">pca_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.pca_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the input feature set X to a given number of principle components through PCA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>Pandas DataFrame</em>) – Input feature set to transform.</p></li>
+<li><p><strong>n_components</strong> (<em>integer</em>) – Number of principle components for PCA.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Transformed principle components.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.train_model">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.train_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train a model on the given dataset and return the trained model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset to train the model.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Label name of the given dataset.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Model to train.</p></li>
+<li><p><strong>parameter</strong> (<em>dictionary</em>) – A set of hyperparameters for the model.</p></li>
+<li><p><strong>drop_column</strong> (<em>list</em>) – columns to drop from the feature set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A model object trained on the given dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Modeling Module</a><ul>
+<li><a class="reference internal" href="#Modeling.CV_Evaluate"><code class="docutils literal notranslate"><span class="pre">CV_Evaluate()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.CV_best_parameter"><code class="docutils literal notranslate"><span class="pre">CV_best_parameter()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.evaluate_model"><code class="docutils literal notranslate"><span class="pre">evaluate_model()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.extract_model"><code class="docutils literal notranslate"><span class="pre">extract_model()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.fit_pca"><code class="docutils literal notranslate"><span class="pre">fit_pca()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.get_default_param"><code class="docutils literal notranslate"><span class="pre">get_default_param()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.get_explained_variance"><code class="docutils literal notranslate"><span class="pre">get_explained_variance()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.get_features"><code class="docutils literal notranslate"><span class="pre">get_features()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.get_labels"><code class="docutils literal notranslate"><span class="pre">get_labels()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.get_model_constructor"><code class="docutils literal notranslate"><span class="pre">get_model_constructor()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.get_param_preset"><code class="docutils literal notranslate"><span class="pre">get_param_preset()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.load_model"><code class="docutils literal notranslate"><span class="pre">load_model()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.pca_transform"><code class="docutils literal notranslate"><span class="pre">pca_transform()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="modules.html"
+                          title="previous chapter">Modules</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="Visualization.html"
+                          title="next chapter">Visualization Module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Modeling.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Visualization.html" title="Visualization Module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="Modules"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AiCella for Developers 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >Modules</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modeling Module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, AiCella.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>

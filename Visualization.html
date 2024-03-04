@@ -1,0 +1,771 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Visualization Module &#8212; AiCella for Developers 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Modeling Module" href="Modeling.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Modeling.html" title="Modeling Module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AiCella for Developers 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">Modules</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Visualization Module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="visualization-module">
+<h1>Visualization Module<a class="headerlink" href="#visualization-module" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-Visualization"></span><p>The visualization.py includes functions for creating both interactive and static visualizations using 
+a combination of Matplotlib, Seaborn, Bokeh, and Plotly.</p>
+<p>It has to be used with the Modeling.py file in the same directory.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.Correlation_Heatmap">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">Correlation_Heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('#00204C',</span> <span class="pre">'#00204E',</span> <span class="pre">'#002150',</span> <span class="pre">'#002251',</span> <span class="pre">'#002353',</span> <span class="pre">'#002355',</span> <span class="pre">'#002456',</span> <span class="pre">'#002558',</span> <span class="pre">'#00265A',</span> <span class="pre">'#00265B',</span> <span class="pre">'#00275D',</span> <span class="pre">'#00285F',</span> <span class="pre">'#002861',</span> <span class="pre">'#002963',</span> <span class="pre">'#002A64',</span> <span class="pre">'#002A66',</span> <span class="pre">'#002B68',</span> <span class="pre">'#002C6A',</span> <span class="pre">'#002D6C',</span> <span class="pre">'#002D6D',</span> <span class="pre">'#002E6E',</span> <span class="pre">'#002E6F',</span> <span class="pre">'#002F6F',</span> <span class="pre">'#002F6F',</span> <span class="pre">'#00306F',</span> <span class="pre">'#00316F',</span> <span class="pre">'#00316F',</span> <span class="pre">'#00326E',</span> <span class="pre">'#00336E',</span> <span class="pre">'#00346E',</span> <span class="pre">'#00346E',</span> <span class="pre">'#01356E',</span> <span class="pre">'#06366E',</span> <span class="pre">'#0A376D',</span> <span class="pre">'#0E376D',</span> <span class="pre">'#12386D',</span> <span class="pre">'#15396D',</span> <span class="pre">'#17396D',</span> <span class="pre">'#1A3A6C',</span> <span class="pre">'#1C3B6C',</span> <span class="pre">'#1E3C6C',</span> <span class="pre">'#203C6C',</span> <span class="pre">'#223D6C',</span> <span class="pre">'#243E6C',</span> <span class="pre">'#263E6C',</span> <span class="pre">'#273F6C',</span> <span class="pre">'#29406B',</span> <span class="pre">'#2B416B',</span> <span class="pre">'#2C416B',</span> <span class="pre">'#2E426B',</span> <span class="pre">'#2F436B',</span> <span class="pre">'#31446B',</span> <span class="pre">'#32446B',</span> <span class="pre">'#33456B',</span> <span class="pre">'#35466B',</span> <span class="pre">'#36466B',</span> <span class="pre">'#37476B',</span> <span class="pre">'#38486B',</span> <span class="pre">'#3A496B',</span> <span class="pre">'#3B496B',</span> <span class="pre">'#3C4A6B',</span> <span class="pre">'#3D4B6B',</span> <span class="pre">'#3E4B6B',</span> <span class="pre">'#404C6B',</span> <span class="pre">'#414D6B',</span> <span class="pre">'#424E6B',</span> <span class="pre">'#434E6B',</span> <span class="pre">'#444F6B',</span> <span class="pre">'#45506B',</span> <span class="pre">'#46506B',</span> <span class="pre">'#47516B',</span> <span class="pre">'#48526B',</span> <span class="pre">'#49536B',</span> <span class="pre">'#4A536B',</span> <span class="pre">'#4B546B',</span> <span class="pre">'#4C556B',</span> <span class="pre">'#4D556B',</span> <span class="pre">'#4E566B',</span> <span class="pre">'#4F576C',</span> <span class="pre">'#50586C',</span> <span class="pre">'#51586C',</span> <span class="pre">'#52596C',</span> <span class="pre">'#535A6C',</span> <span class="pre">'#545A6C',</span> <span class="pre">'#555B6C',</span> <span class="pre">'#565C6C',</span> <span class="pre">'#575D6D',</span> <span class="pre">'#585D6D',</span> <span class="pre">'#595E6D',</span> <span class="pre">'#5A5F6D',</span> <span class="pre">'#5B5F6D',</span> <span class="pre">'#5C606D',</span> <span class="pre">'#5D616E',</span> <span class="pre">'#5E626E',</span> <span class="pre">'#5F626E',</span> <span class="pre">'#5F636E',</span> <span class="pre">'#60646E',</span> <span class="pre">'#61656F',</span> <span class="pre">'#62656F',</span> <span class="pre">'#63666F',</span> <span class="pre">'#64676F',</span> <span class="pre">'#65676F',</span> <span class="pre">'#666870',</span> <span class="pre">'#676970',</span> <span class="pre">'#686A70',</span> <span class="pre">'#686A70',</span> <span class="pre">'#696B71',</span> <span class="pre">'#6A6C71',</span> <span class="pre">'#6B6D71',</span> <span class="pre">'#6C6D72',</span> <span class="pre">'#6D6E72',</span> <span class="pre">'#6E6F72',</span> <span class="pre">'#6F6F72',</span> <span class="pre">'#6F7073',</span> <span class="pre">'#707173',</span> <span class="pre">'#717273',</span> <span class="pre">'#727274',</span> <span class="pre">'#737374',</span> <span class="pre">'#747475',</span> <span class="pre">'#757575',</span> <span class="pre">'#757575',</span> <span class="pre">'#767676',</span> <span class="pre">'#777776',</span> <span class="pre">'#787876',</span> <span class="pre">'#797877',</span> <span class="pre">'#7A7977',</span> <span class="pre">'#7B7A77',</span> <span class="pre">'#7B7B78',</span> <span class="pre">'#7C7B78',</span> <span class="pre">'#7D7C78',</span> <span class="pre">'#7E7D78',</span> <span class="pre">'#7F7E78',</span> <span class="pre">'#807E78',</span> <span class="pre">'#817F78',</span> <span class="pre">'#828078',</span> <span class="pre">'#838178',</span> <span class="pre">'#848178',</span> <span class="pre">'#858278',</span> <span class="pre">'#868378',</span> <span class="pre">'#878478',</span> <span class="pre">'#888578',</span> <span class="pre">'#898578',</span> <span class="pre">'#8A8678',</span> <span class="pre">'#8B8778',</span> <span class="pre">'#8C8878',</span> <span class="pre">'#8D8878',</span> <span class="pre">'#8E8978',</span> <span class="pre">'#8F8A78',</span> <span class="pre">'#908B78',</span> <span class="pre">'#918C78',</span> <span class="pre">'#928C78',</span> <span class="pre">'#938D78',</span> <span class="pre">'#948E78',</span> <span class="pre">'#958F78',</span> <span class="pre">'#968F77',</span> <span class="pre">'#979077',</span> <span class="pre">'#989177',</span> <span class="pre">'#999277',</span> <span class="pre">'#9A9377',</span> <span class="pre">'#9B9377',</span> <span class="pre">'#9C9477',</span> <span class="pre">'#9D9577',</span> <span class="pre">'#9E9676',</span> <span class="pre">'#9F9776',</span> <span class="pre">'#A09876',</span> <span class="pre">'#A19876',</span> <span class="pre">'#A29976',</span> <span class="pre">'#A39A75',</span> <span class="pre">'#A49B75',</span> <span class="pre">'#A59C75',</span> <span class="pre">'#A69C75',</span> <span class="pre">'#A79D75',</span> <span class="pre">'#A89E74',</span> <span class="pre">'#A99F74',</span> <span class="pre">'#AAA074',</span> <span class="pre">'#ABA174',</span> <span class="pre">'#ACA173',</span> <span class="pre">'#ADA273',</span> <span class="pre">'#AEA373',</span> <span class="pre">'#AFA473',</span> <span class="pre">'#B0A572',</span> <span class="pre">'#B1A672',</span> <span class="pre">'#B2A672',</span> <span class="pre">'#B4A771',</span> <span class="pre">'#B5A871',</span> <span class="pre">'#B6A971',</span> <span class="pre">'#B7AA70',</span> <span class="pre">'#B8AB70',</span> <span class="pre">'#B9AB70',</span> <span class="pre">'#BAAC6F',</span> <span class="pre">'#BBAD6F',</span> <span class="pre">'#BCAE6E',</span> <span class="pre">'#BDAF6E',</span> <span class="pre">'#BEB06E',</span> <span class="pre">'#BFB16D',</span> <span class="pre">'#C0B16D',</span> <span class="pre">'#C1B26C',</span> <span class="pre">'#C2B36C',</span> <span class="pre">'#C3B46C',</span> <span class="pre">'#C5B56B',</span> <span class="pre">'#C6B66B',</span> <span class="pre">'#C7B76A',</span> <span class="pre">'#C8B86A',</span> <span class="pre">'#C9B869',</span> <span class="pre">'#CAB969',</span> <span class="pre">'#CBBA68',</span> <span class="pre">'#CCBB68',</span> <span class="pre">'#CDBC67',</span> <span class="pre">'#CEBD67',</span> <span class="pre">'#D0BE66',</span> <span class="pre">'#D1BF66',</span> <span class="pre">'#D2C065',</span> <span class="pre">'#D3C065',</span> <span class="pre">'#D4C164',</span> <span class="pre">'#D5C263',</span> <span class="pre">'#D6C363',</span> <span class="pre">'#D7C462',</span> <span class="pre">'#D8C561',</span> <span class="pre">'#D9C661',</span> <span class="pre">'#DBC760',</span> <span class="pre">'#DCC860',</span> <span class="pre">'#DDC95F',</span> <span class="pre">'#DECA5E',</span> <span class="pre">'#DFCB5D',</span> <span class="pre">'#E0CB5D',</span> <span class="pre">'#E1CC5C',</span> <span class="pre">'#E3CD5B',</span> <span class="pre">'#E4CE5B',</span> <span class="pre">'#E5CF5A',</span> <span class="pre">'#E6D059',</span> <span class="pre">'#E7D158',</span> <span class="pre">'#E8D257',</span> <span class="pre">'#E9D356',</span> <span class="pre">'#EBD456',</span> <span class="pre">'#ECD555',</span> <span class="pre">'#EDD654',</span> <span class="pre">'#EED753',</span> <span class="pre">'#EFD852',</span> <span class="pre">'#F0D951',</span> <span class="pre">'#F1DA50',</span> <span class="pre">'#F3DB4F',</span> <span class="pre">'#F4DC4E',</span> <span class="pre">'#F5DD4D',</span> <span class="pre">'#F6DE4C',</span> <span class="pre">'#F7DF4B',</span> <span class="pre">'#F9E049',</span> <span class="pre">'#FAE048',</span> <span class="pre">'#FBE147',</span> <span class="pre">'#FCE246',</span> <span class="pre">'#FDE345',</span> <span class="pre">'#FFE443',</span> <span class="pre">'#FFE542',</span> <span class="pre">'#FFE642',</span> <span class="pre">'#FFE743',</span> <span class="pre">'#FFE844',</span> <span class="pre">'#FFE945')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positive_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.Correlation_Heatmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive Correlation Heatmap based on the given dataset. The resulting plot is shown in a different tab.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>cell_color</strong> (<em>Bokeh Color Palette</em>) – Cell color scheme. Default is Cividis256.</p></li>
+<li><p><strong>line_color</strong> (<em>string</em>) – Color of lines in between cells. Default is None.</p></li>
+<li><p><strong>positive_color</strong> (<em>string</em>) – Color for the positive sign. Default is skyblue.</p></li>
+<li><p><strong>negative_color</strong> (<em>string</em>) – Color for the negative sign. Default is skyblue.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A resulting Correlation Heatmap plot object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.Plot_Performance_Comparison">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">Plot_Performance_Comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">performance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('#2b83ba',</span> <span class="pre">'#abdda4',</span> <span class="pre">'#ffffbf',</span> <span class="pre">'#fdae61',</span> <span class="pre">'#d7191c')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.Plot_Performance_Comparison" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create interactive bar plots for performance comparison across models given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>performance</strong> (<em>dictionary</em>) – Performance of all the models.</p></li>
+<li><p><strong>models</strong> (<em>list</em>) – Names of all the models included.</p></li>
+<li><p><strong>metrics</strong> (<em>list</em>) – Metrics included.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of bar. Default is 0.7.</p></li>
+<li><p><strong>bar_color</strong> (<em>Bokeh Palette Object</em>) – Color scheme of the bars. Default is Spectral5 for 5 categories.</p></li>
+<li><p><strong>line_color</strong> (<em>string</em>) – Color of the bar outline. Default is black.</p></li>
+<li><p><strong>fill_alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha of bar filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A resulting bar plot object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.ROC_AUC_Curve">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">ROC_AUC_Curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roc_auc_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'navy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roc_auc_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roc_auc_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roc_auc_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'solid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dashed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.ROC_AUC_Curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive ROC AUC Curve plot given the model and the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>roc_auc_color</strong> (<em>string</em>) – Color of the ROC AUC Curve. Default is skyblue.</p></li>
+<li><p><strong>reference_color</strong> (<em>string</em>) – Color of the reference curve. Default is navy.</p></li>
+<li><p><strong>roc_auc_alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha of the ROC AUC Curve. Default is 0.5.</p></li>
+<li><p><strong>reference_alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha of the reference curve. Default is 1.0.</p></li>
+<li><p><strong>roc_auc_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the ROC AUC Curve. Default is 3.6.</p></li>
+<li><p><strong>reference_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the reference curve. Default is 3.</p></li>
+<li><p><strong>roc_auc_style</strong> (<em>string</em>) – Line style of the ROC AUC Curve. Default is solid.</p></li>
+<li><p><strong>reference_style</strong> (<em>string</em>) – Line style of the reference curve. Default is dashed.</p></li>
+<li><p><strong>fill_alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha of the filling color. Default is 0.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A resulting ROC AUC Curve plot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.bokeh_to_html">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">bokeh_to_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.bokeh_to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the bokeh interactive plot to a html file at the current location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – The name of the html files.</p></li>
+<li><p><strong>bokeh_object</strong> (<em>bokeh plot object</em>) – The bokeh plot to extract.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Files extracted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.confusion_matrix_static">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">confusion_matrix_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.confusion_matrix_static" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a confusion matrix heatmap given the dataset, target label, and model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>figsize_x</strong> (<em>float</em>) – Figure size on the X axis. Default is set by the global x size value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>float</em>) – Figure size on the Y axis. Default is set to be equal to figsize_x as the plot is a square.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting confusion matrix heatmap figure object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.correlation_heatmap_static">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">correlation_heatmap_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RdBu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.correlation_heatmap_static" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a static Correlation Heatmap given the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis. Default is set by the global x size value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis. Default is set to be equal to figsize_x as the plot is a square.</p></li>
+<li><p><strong>color</strong> (<em>string</em><em> or </em><em>matplotlib colormap object</em>) – Color map for the heatmap. Default is “RdBu”, available options are introduced in the matplotlib’s color documentation</p></li>
+<li><p><strong>annot</strong> – Annotate the plot with correlation values in the cells. Default is False.</p></li>
+<li><p><strong>linewidth</strong> (<em>float</em>) – Width of the line in between cells. Default is 0.2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The resulting static correlation heatmap figure object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.extract_static_figure">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">extract_static_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.extract_static_figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the Matplotlib Figure Objects and save it as .jpg or .png file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – Name of the file for your figure.</p></li>
+<li><p><strong>figure</strong> (<em>None</em>) – Input figure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.feature_importance_permutation">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">feature_importance_permutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repeats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.feature_importance_permutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualize the feature importance through Feature Permutation, given a model and a dataset. 
+Feature Permutation provides a more precise, unbiased estimation of feature importance, at the cost of higher computational resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, available for all sklearn model objects.</p></li>
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset to evaluate on, must have the same feature set with the same column order as the dataset that model was trained on.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>n_repeats</strong> (<em>integer</em>) – Number of times to repeat the permutation. Default is 7.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar chart to visualizae input model’s feature importance on the given dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.gbm_feature_importance">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">gbm_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.gbm_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualize the feature importance for a given GBM model. Currently this function only supports Light GBM model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a Light GBM model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar plot to visualize the feature importance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.get_global_figsize">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">get_global_figsize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.get_global_figsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current global figure size values. Matplotlib uses inches as default unit measurement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Current global figure size values on x and y.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.get_global_figsize_for_bokeh">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">get_global_figsize_for_bokeh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.get_global_figsize_for_bokeh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current global Bokeh figure size values. Bokeh uses pixels as default unit measurement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Current global Bokeh figure size values on x and y.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.get_global_figsize_for_plotly">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">get_global_figsize_for_plotly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.get_global_figsize_for_plotly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current global Plotly figure size values. Plotly uses pixels as default unit measurement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Current global Plotly figure size values on x and y.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.performance_comparison_static">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">performance_comparison_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">performance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.performance_comparison_static" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a static grouped bar plot for performance comparison across different models with different metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>performance</strong> (<em>dictionary</em>) – Performance evaluation dictionary of all models.</p></li>
+<li><p><strong>models</strong> (<em>list</em>) – Names of all the models included.</p></li>
+<li><p><strong>metrics</strong> (<em>list</em>) – Metrics included. Default is an empty list.</p></li>
+<li><p><strong>figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis. Default is set by the global x size value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis. Default is set by the global y size value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting grouped bar figure object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.plot_explained_variance">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">plot_explained_variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.plot_explained_variance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive line plot for Number of Principle Components vs. Percentage of Variance Explained.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>Pandas DataFrame</em>) – Input feature set.</p></li>
+<li><p><strong>max_n_components</strong> (<em>integer</em>) – Max number of components you want to include.</p></li>
+<li><p><strong>figsize_x</strong> (<em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global plotly figure size x value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global plotly figure size y value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting chart.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.plot_pc_2d">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">plot_pc_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.plot_pc_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive 2d scatter plot to visualize 2 principle components of the feature set of the input dataset. Scatter dots are grouped by their corresponding class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>figsize_x</strong> (<em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global plotly figure size x value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global plotly figure size y value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting 2d scatter plot object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.plot_pc_3d">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">plot_pc_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.plot_pc_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive 3d scatter plot to visualize 3 principle components of the feature set of input dataset. Scatter dots are grouped by their corresponding class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>figsize_x</strong> (<em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global plotly figure size x value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global plotly figure size y value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting 3d scatter plot object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.plotly_to_html">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">plotly_to_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotly_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.plotly_to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the Plotly interactive plot to a html file at the current location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – The name of the html files.</p></li>
+<li><p><strong>plotly_object</strong> (<em>Plotly Plot Object</em>) – The plotly plot to extract.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Files extracted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.random_forest_feature_importance">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">random_forest_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.random_forest_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualize the feature importance of a Random Forest Model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a Random Forest model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar plot to visualize the feature importance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.random_forest_tree_voting_distribution">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">random_forest_tree_voting_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['seagreen',</span> <span class="pre">'#fefecd']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.random_forest_tree_voting_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a pie chart visualizing the tree voting distribution of a specific data point instance given Random Forest model. This function is currently only available for binary classification random forest model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a regression based model.</p></li>
+<li><p><strong>instance</strong> (<em>Series</em><em> or </em><em>DataFrame</em>) – Input instance, must be a single entry with the same format as the training dataset.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the filling color. Default is 0.7.</p></li>
+<li><p><strong>color</strong> (<em>list</em><em> of </em><em>string</em>) – Color for the filling color. Default is [“seagreen”, “#fefecd”] to match the color scheme of tree visualization chart.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting pie chart visualizing the tree voting distribution.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.regression_feature_importance">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">regression_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.regression_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualiaze the feature importance of a given regression based model using Bokeh. The feature importance of a regression based model is derived from its feature weights, 
+which means the plot created using this function will be identical to the plot created by regression_feature_weight().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a regression based model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar chart to visualizae regression model’s feature weights.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.regression_feature_weight">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">regression_feature_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.regression_feature_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualiaze the feature weights of a given regression based model using Bokeh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a regression based model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar chart to visualizae regression model’s feature weights.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.roc_auc_curve_static">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">roc_auc_curve_static</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.roc_auc_curve_static" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a static ROC AUC Curve plot given the dataset, model, and target label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis. Default is set by the global x size value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis. Default is set by the global y size value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting ROC AUC Curve Figure Object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.scatter_2d">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">scatter_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.scatter_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive 2d scatter plot given the dataset, the two features to visualize on x and y axis, and the label to group by.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>x</strong> (<em>string</em>) – Feature to visualize on X axis.</p></li>
+<li><p><strong>y</strong> (<em>string</em>) – Feature to visualize on Y axis.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label to group the scatter dotts.</p></li>
+<li><p><strong>figsize_x</strong> (<em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global plotly figure size x value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global plotly figure size y value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting 2d scatter plot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.scatter_3d">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">scatter_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.scatter_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an interactive 3d scatter plot given the dataset, the two features to visualize on x and y axis, and the label to group by.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>x</strong> (<em>string</em>) – Feature to visualize on X axis.</p></li>
+<li><p><strong>y</strong> (<em>string</em>) – Feature to visualize on Y axis.</p></li>
+<li><p><strong>z</strong> (<em>string</em>) – Feature to visualize on Z axis.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label to group the scatter dotts.</p></li>
+<li><p><strong>figsize_x</strong> (<em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global plotly figure size x value.</p></li>
+<li><p><strong>figsize_y</strong> (<em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global plotly figure size y value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting 3d scatter plot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.set_global_figsize">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">set_global_figsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.set_global_figsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the global figure size to values you desire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis.</p></li>
+<li><p><strong>y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New global figure size values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.set_global_figsize_for_bokeh">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">set_global_figsize_for_bokeh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.set_global_figsize_for_bokeh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the global Bokeh figure size to values you desire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis.</p></li>
+<li><p><strong>y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New global Bokeh figure size values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.set_global_figsize_for_plotly">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">set_global_figsize_for_plotly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.set_global_figsize_for_plotly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the global Plotly figure size to values you desire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis.</p></li>
+<li><p><strong>y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New global Plotly figure size values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.tree_feature_importance">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">tree_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.tree_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualize the feature importance of a Decision Tree model using Bokeh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a Decision Tree model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar plot to visualize the feature importance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.tree_prediction_paths">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">tree_prediction_paths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simplified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['Negative',</span> <span class="pre">'Positive']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.tree_prediction_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a diagram to visualize Decision Tree prediction path for a specific instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Dataset the model was trained on.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a Decision Tree model.</p></li>
+<li><p><strong>instance</strong> (<em>Series</em><em> or </em><em>DataFrame</em>) – Input instance, must be a single entry with the same format as the training dataset.</p></li>
+<li><p><strong>scale</strong> (<em>float</em><em> or </em><em>integer</em>) – Scale of the output chart. Default is 2.0.</p></li>
+<li><p><strong>orientation</strong> (<em>string</em>) – Orientation of the output chart. Choose one between “TD” (Vertical) and “LR” (Horizontal). Default is Vertical.</p></li>
+<li><p><strong>show_distribution</strong> (<em>boolean</em>) – Display feature distribution or not. Default is True.</p></li>
+<li><p><strong>simplified</strong> – Display a simplified tree prediction path, only includes the path that instance took to reach the prediction. Default is False, which means includes all paths of the tree structure and highlighs the path taken by the instance.</p></li>
+<li><p><strong>class_names</strong> (<em>list</em><em> of </em><em>strings</em>) – Class names of the label class. Default is for binary classification, [“Negative”, “Positive”].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting tree structure diagram object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.tree_structure">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">tree_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TD'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['Negative',</span> <span class="pre">'Positive']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.tree_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a tree structure diagram given a Decision Tree model and the dataset it was trained on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Dataset the model was trained on.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a Decision Tree model.</p></li>
+<li><p><strong>scale</strong> (<em>float</em><em> or </em><em>integer</em>) – Scale of the output chart. Default is 2.0.</p></li>
+<li><p><strong>orientation</strong> (<em>string</em>) – Orientation of the output chart. Choose one between “TD” (Vertical) and “LR” (Horizontal). Default is Vertical.</p></li>
+<li><p><strong>show_distribution</strong> (<em>boolean</em>) – Display feature distribution or not. Default is True.</p></li>
+<li><p><strong>class_names</strong> (<em>list</em><em> of </em><em>strings</em>) – Class names of the label class. Default is for binary classification, [“Negative”, “Positive”].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting tree structure diagram object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Visualization.xgb_feature_importance">
+<span class="sig-prename descclassname"><span class="pre">Visualization.</span></span><span class="sig-name descname"><span class="pre">xgb_feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bokeh_figsize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'skyblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Visualization.xgb_feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a bar plot to visualize the feature importance for a given XGBoost model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model, must be a XGBoost model.</p></li>
+<li><p><strong>bokeh_figsize_x</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the X axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bokeh_figsize_y</strong> (<em>float</em><em> or </em><em>integer</em>) – Figure size on the Y axis, unit is in pixels instead of inches. Default is set by the global bokeh x size value.</p></li>
+<li><p><strong>bar_width</strong> (<em>float</em><em> or </em><em>integer</em>) – Width of the bars in chart. Default is 1.0.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Color of the bar and their outlines. Default is skyblue.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em> or </em><em>integer</em>) – Color alpha for the bar’s filling color. Default is 0.7.</p></li>
+<li><p><strong>label_rotate</strong> (<em>float</em><em> or </em><em>integer.</em>) – Rotation of x axis labels. Default is 1.2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resulting bar plot to visualize the feature importance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Visualization Module</a><ul>
+<li><a class="reference internal" href="#Visualization.Correlation_Heatmap"><code class="docutils literal notranslate"><span class="pre">Correlation_Heatmap()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.Plot_Performance_Comparison"><code class="docutils literal notranslate"><span class="pre">Plot_Performance_Comparison()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.ROC_AUC_Curve"><code class="docutils literal notranslate"><span class="pre">ROC_AUC_Curve()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.bokeh_to_html"><code class="docutils literal notranslate"><span class="pre">bokeh_to_html()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.confusion_matrix_static"><code class="docutils literal notranslate"><span class="pre">confusion_matrix_static()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.correlation_heatmap_static"><code class="docutils literal notranslate"><span class="pre">correlation_heatmap_static()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.extract_static_figure"><code class="docutils literal notranslate"><span class="pre">extract_static_figure()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.feature_importance_permutation"><code class="docutils literal notranslate"><span class="pre">feature_importance_permutation()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.gbm_feature_importance"><code class="docutils literal notranslate"><span class="pre">gbm_feature_importance()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.get_global_figsize"><code class="docutils literal notranslate"><span class="pre">get_global_figsize()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.get_global_figsize_for_bokeh"><code class="docutils literal notranslate"><span class="pre">get_global_figsize_for_bokeh()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.get_global_figsize_for_plotly"><code class="docutils literal notranslate"><span class="pre">get_global_figsize_for_plotly()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.performance_comparison_static"><code class="docutils literal notranslate"><span class="pre">performance_comparison_static()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.plot_explained_variance"><code class="docutils literal notranslate"><span class="pre">plot_explained_variance()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.plot_pc_2d"><code class="docutils literal notranslate"><span class="pre">plot_pc_2d()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.plot_pc_3d"><code class="docutils literal notranslate"><span class="pre">plot_pc_3d()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.plotly_to_html"><code class="docutils literal notranslate"><span class="pre">plotly_to_html()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.random_forest_feature_importance"><code class="docutils literal notranslate"><span class="pre">random_forest_feature_importance()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.random_forest_tree_voting_distribution"><code class="docutils literal notranslate"><span class="pre">random_forest_tree_voting_distribution()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.regression_feature_importance"><code class="docutils literal notranslate"><span class="pre">regression_feature_importance()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.regression_feature_weight"><code class="docutils literal notranslate"><span class="pre">regression_feature_weight()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.roc_auc_curve_static"><code class="docutils literal notranslate"><span class="pre">roc_auc_curve_static()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.scatter_2d"><code class="docutils literal notranslate"><span class="pre">scatter_2d()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.scatter_3d"><code class="docutils literal notranslate"><span class="pre">scatter_3d()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.set_global_figsize"><code class="docutils literal notranslate"><span class="pre">set_global_figsize()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.set_global_figsize_for_bokeh"><code class="docutils literal notranslate"><span class="pre">set_global_figsize_for_bokeh()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.set_global_figsize_for_plotly"><code class="docutils literal notranslate"><span class="pre">set_global_figsize_for_plotly()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.tree_feature_importance"><code class="docutils literal notranslate"><span class="pre">tree_feature_importance()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.tree_prediction_paths"><code class="docutils literal notranslate"><span class="pre">tree_prediction_paths()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.tree_structure"><code class="docutils literal notranslate"><span class="pre">tree_structure()</span></code></a></li>
+<li><a class="reference internal" href="#Visualization.xgb_feature_importance"><code class="docutils literal notranslate"><span class="pre">xgb_feature_importance()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="Modeling.html"
+                          title="previous chapter">Modeling Module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Visualization.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Modeling.html" title="Modeling Module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AiCella for Developers 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >Modules</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Visualization Module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, AiCella.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+Modeling Module 
+===============
+
+.. automodule:: Modeling
+   :members:
+   :undoc-members:
+   :show-inheritance:
