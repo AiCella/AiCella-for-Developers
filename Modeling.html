@@ -270,6 +270,29 @@ Folds Cross Validation. The resulting performance gives a theoretically best rep
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="Modeling.model_performance_table">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">model_performance_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Accuracy':</span> <span class="pre">'accuracy',</span> <span class="pre">'F1</span> <span class="pre">Score':</span> <span class="pre">'f1',</span> <span class="pre">'Precision':</span> <span class="pre">'precision',</span> <span class="pre">'ROC</span> <span class="pre">AUC':</span> <span class="pre">'roc_auc',</span> <span class="pre">'Specificity':</span> <span class="pre">make_scorer(recall_score,</span> <span class="pre">pos_label=0)}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.model_performance_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a comprehensive table of model performance, metrics include Accuracy, ROC AUC, Precision, Specificity, F1 Score, 
+Number of True Positives, True Negatives, False Positives, and False Negatives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset for the model to be evaluated on.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label for the dataset.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model to be evaluated.</p></li>
+<li><p><strong>metrics</strong> (<em>dictionary</em>) – Metrics to include in the evaluation. Default includes Accuracy, ROC AUC, Precision, Specificy, and F1 Score.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluation results of the model</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A table containing the model performance for every metric.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="Modeling.pca_transform">
 <span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">pca_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.pca_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform the input feature set X to a given number of principle components through PCA.</p>
@@ -282,6 +305,25 @@ Folds Cross Validation. The resulting performance gives a theoretically best rep
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Transformed principle components.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.prediction_table">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">prediction_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_with_identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.prediction_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a table showing the Identifier, Ground Truth, Prediction, and Probability Estimates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_with_identifier</strong> (<em>Pandas DataFrame</em>) – Input dataset to make predictions on, with the identifier column as identifier.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label of the dataset.</p></li>
+<li><p><strong>identifier</strong> (<em>string</em>) – Column name of the column that is used as the identifier.</p></li>
+<li><p><strong>model</strong> (<em>sklearn model object</em>) – Input model to evaulate on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A table containing the prediction results.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -331,7 +373,9 @@ Folds Cross Validation. The resulting performance gives a theoretically best rep
 <li><a class="reference internal" href="#Modeling.get_model_constructor"><code class="docutils literal notranslate"><span class="pre">get_model_constructor()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.get_param_preset"><code class="docutils literal notranslate"><span class="pre">get_param_preset()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.load_model"><code class="docutils literal notranslate"><span class="pre">load_model()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.model_performance_table"><code class="docutils literal notranslate"><span class="pre">model_performance_table()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.pca_transform"><code class="docutils literal notranslate"><span class="pre">pca_transform()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.prediction_table"><code class="docutils literal notranslate"><span class="pre">prediction_table()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
 </ul>
 </li>
