@@ -109,6 +109,23 @@ Folds Cross Validation. The resulting performance gives a theoretically best rep
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="Modeling.drop_columns">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">drop_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.drop_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dataset and a list of columns, returns the dataset without those columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>columns</strong> (<em>list</em><em> of </em><em>strings</em><em> or </em><em>a string</em>) – Columns to drop from the dataset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataset without the specified columns.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="Modeling.evaluate_model">
 <span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">evaluate_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Accuracy':</span> <span class="pre">'accuracy',</span> <span class="pre">'F1</span> <span class="pre">Score':</span> <span class="pre">'f1',</span> <span class="pre">'Precision':</span> <span class="pre">'precision',</span> <span class="pre">'ROC</span> <span class="pre">AUC':</span> <span class="pre">'roc_auc',</span> <span class="pre">'Specificity':</span> <span class="pre">make_scorer(recall_score,</span> <span class="pre">pos_label=0)}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_folds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.evaluate_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the given model on a given dataset. When num_folds is None, Cross Validation is not used, and the whole input dataset is used for evaluation.</p>
@@ -165,7 +182,8 @@ Folds Cross Validation. The resulting performance gives a theoretically best rep
 <dl class="py function">
 <dt class="sig sig-object py" id="Modeling.get_default_param">
 <span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_default_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_default_param" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the pre selected set of hyperparameters for the model.</p>
+<dd><p>Get the pre selected set of hyperparameters for the model. Please be aware that this default set is a set of hyperparameters to choose from, it 
+can not be used directly on the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>model</strong> (<em>sklearn model object</em>) – The input model for the hyperparameters.</p>
@@ -244,7 +262,7 @@ Folds Cross Validation. The resulting performance gives a theoretically best rep
 <dl class="py function">
 <dt class="sig sig-object py" id="Modeling.get_param_preset">
 <span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">get_param_preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.get_param_preset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the hyperparameter preset of the input model.</p>
+<dd><p>Get the hyperparameter preset of the input model. This hyparameter set can be used directly on the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>model</strong> (<em>sklearn model object</em>) – The model you want to get hyperparameter preset for.</p>
@@ -312,7 +330,7 @@ Number of True Positives, True Negatives, False Positives, and False Negatives.<
 <dl class="py function">
 <dt class="sig sig-object py" id="Modeling.prediction_table">
 <span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">prediction_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_with_identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.prediction_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a table showing the Identifier, Ground Truth, Prediction, and Probability Estimates.</p>
+<dd><p>Creates a table showing the Identifier, Ground Truth, Prediction, and Probability Estimates. The dataset must have an identifier column.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -324,6 +342,43 @@ Number of True Positives, True Negatives, False Positives, and False Negatives.<
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A table containing the prediction results.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.sample_dataset">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">sample_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.sample_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dataset and a number, return a number of samples drawed from that dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>n</strong> (<em>integer</em>) – Number of sample to drawed from the dataset.</p></li>
+<li><p><strong>replace</strong> (<em>boolean</em>) – With replacement or not for the sampling. Default is False.</p></li>
+<li><p><strong>ignore_index</strong> (<em>boolean</em>) – Reset the index for the generated samples or not. Default is True.</p></li>
+<li><p><strong>random_seed</strong> (<em>integer</em>) – Random state. Default is None which means no random state was used for the generator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dataset of samples drawed from the dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.shuffle_dataset">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">shuffle_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.shuffle_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dataset, shuffles it and returns the shuffled dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset.</p></li>
+<li><p><strong>random_seed</strong> (<em>integer</em>) – Random state. Default is None which means no random state was used for the generator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The shuffled dataset</p>
 </dd>
 </dl>
 </dd></dl>
@@ -348,6 +403,48 @@ Number of True Positives, True Negatives, False Positives, and False Negatives.<
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.train_model_pipeline_with_CV_param">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">train_model_pipeline_with_CV_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_folds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'accuracy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'default':</span> <span class="pre">'default'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.train_model_pipeline_with_CV_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dataset and a model name, train that model on the dataset with Cross Validation based hyperparameter tuning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset to train the model on.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>model_name</strong> (<em>string</em>) – Name of the model to train.</p></li>
+<li><p><strong>num_folds</strong> (<em>integer</em>) – Number of folds for the Cross Validation. Default is 5.</p></li>
+<li><p><strong>metrics</strong> (<em>string</em>) – Metrics to optimize for the Cross Validation. Default is accuracy.</p></li>
+<li><p><strong>parameter</strong> (<em>dictionary</em>) – Hyperparameter set for the model. Default is the default set of hyperparameter for that model.</p></li>
+<li><p><strong>drop_column</strong> (<em>list</em><em> of </em><em>string</em>) – Columns to drop from the feature set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Trained model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Modeling.train_model_pipeline_without_CV_param">
+<span class="sig-prename descclassname"><span class="pre">Modeling.</span></span><span class="sig-name descname"><span class="pre">train_model_pipeline_without_CV_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'default':</span> <span class="pre">'default'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Modeling.train_model_pipeline_without_CV_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dataset and a model name, train that model on the dataset without Cross Validation based hyperparameter tuning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>Pandas DataFrame</em>) – Input dataset to train the model on.</p></li>
+<li><p><strong>label</strong> (<em>string</em>) – Target label.</p></li>
+<li><p><strong>model_name</strong> (<em>string</em>) – Name of the model to train.</p></li>
+<li><p><strong>parameter</strong> (<em>dictionary</em>) – Hyperparameter set for the model. Default is the hyperparameter preset for that model.</p></li>
+<li><p><strong>drop_column</strong> (<em>list</em><em> of </em><em>string</em>) – Columns to drop from the feature set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Trained model.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -363,6 +460,7 @@ Number of True Positives, True Negatives, False Positives, and False Negatives.<
 <li><a class="reference internal" href="#">Modeling Module</a><ul>
 <li><a class="reference internal" href="#Modeling.CV_Evaluate"><code class="docutils literal notranslate"><span class="pre">CV_Evaluate()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.CV_best_parameter"><code class="docutils literal notranslate"><span class="pre">CV_best_parameter()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.drop_columns"><code class="docutils literal notranslate"><span class="pre">drop_columns()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.evaluate_model"><code class="docutils literal notranslate"><span class="pre">evaluate_model()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.extract_model"><code class="docutils literal notranslate"><span class="pre">extract_model()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.fit_pca"><code class="docutils literal notranslate"><span class="pre">fit_pca()</span></code></a></li>
@@ -376,7 +474,11 @@ Number of True Positives, True Negatives, False Positives, and False Negatives.<
 <li><a class="reference internal" href="#Modeling.model_performance_table"><code class="docutils literal notranslate"><span class="pre">model_performance_table()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.pca_transform"><code class="docutils literal notranslate"><span class="pre">pca_transform()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.prediction_table"><code class="docutils literal notranslate"><span class="pre">prediction_table()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.sample_dataset"><code class="docutils literal notranslate"><span class="pre">sample_dataset()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.shuffle_dataset"><code class="docutils literal notranslate"><span class="pre">shuffle_dataset()</span></code></a></li>
 <li><a class="reference internal" href="#Modeling.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.train_model_pipeline_with_CV_param"><code class="docutils literal notranslate"><span class="pre">train_model_pipeline_with_CV_param()</span></code></a></li>
+<li><a class="reference internal" href="#Modeling.train_model_pipeline_without_CV_param"><code class="docutils literal notranslate"><span class="pre">train_model_pipeline_without_CV_param()</span></code></a></li>
 </ul>
 </li>
 </ul>

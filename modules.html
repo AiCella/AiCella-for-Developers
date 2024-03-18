@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Modeling.html">Modeling Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.CV_Evaluate"><code class="docutils literal notranslate"><span class="pre">CV_Evaluate()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.CV_best_parameter"><code class="docutils literal notranslate"><span class="pre">CV_best_parameter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.drop_columns"><code class="docutils literal notranslate"><span class="pre">drop_columns()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.evaluate_model"><code class="docutils literal notranslate"><span class="pre">evaluate_model()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.extract_model"><code class="docutils literal notranslate"><span class="pre">extract_model()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.fit_pca"><code class="docutils literal notranslate"><span class="pre">fit_pca()</span></code></a></li>
@@ -75,7 +76,11 @@
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.model_performance_table"><code class="docutils literal notranslate"><span class="pre">model_performance_table()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.pca_transform"><code class="docutils literal notranslate"><span class="pre">pca_transform()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.prediction_table"><code class="docutils literal notranslate"><span class="pre">prediction_table()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.sample_dataset"><code class="docutils literal notranslate"><span class="pre">sample_dataset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.shuffle_dataset"><code class="docutils literal notranslate"><span class="pre">shuffle_dataset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.train_model_pipeline_with_CV_param"><code class="docutils literal notranslate"><span class="pre">train_model_pipeline_with_CV_param()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modeling.html#Modeling.train_model_pipeline_without_CV_param"><code class="docutils literal notranslate"><span class="pre">train_model_pipeline_without_CV_param()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -85,44 +90,7 @@
 <h1>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Visualization.html">Visualization Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.Correlation_Heatmap"><code class="docutils literal notranslate"><span class="pre">Correlation_Heatmap()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.Plot_Performance_Comparison"><code class="docutils literal notranslate"><span class="pre">Plot_Performance_Comparison()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.ROC_AUC_Curve"><code class="docutils literal notranslate"><span class="pre">ROC_AUC_Curve()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.bokeh_to_html"><code class="docutils literal notranslate"><span class="pre">bokeh_to_html()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.confusion_matrix_static"><code class="docutils literal notranslate"><span class="pre">confusion_matrix_static()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.correlation_heatmap_static"><code class="docutils literal notranslate"><span class="pre">correlation_heatmap_static()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.extract_static_figure"><code class="docutils literal notranslate"><span class="pre">extract_static_figure()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.feature_importance_permutation"><code class="docutils literal notranslate"><span class="pre">feature_importance_permutation()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.gbm_feature_importance"><code class="docutils literal notranslate"><span class="pre">gbm_feature_importance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.get_global_figsize"><code class="docutils literal notranslate"><span class="pre">get_global_figsize()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.get_global_figsize_for_bokeh"><code class="docutils literal notranslate"><span class="pre">get_global_figsize_for_bokeh()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.get_global_figsize_for_plotly"><code class="docutils literal notranslate"><span class="pre">get_global_figsize_for_plotly()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.lime_instance"><code class="docutils literal notranslate"><span class="pre">lime_instance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.performance_comparison_static"><code class="docutils literal notranslate"><span class="pre">performance_comparison_static()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.plot_explained_variance"><code class="docutils literal notranslate"><span class="pre">plot_explained_variance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.plot_pc_2d"><code class="docutils literal notranslate"><span class="pre">plot_pc_2d()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.plot_pc_3d"><code class="docutils literal notranslate"><span class="pre">plot_pc_3d()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.plotly_to_html"><code class="docutils literal notranslate"><span class="pre">plotly_to_html()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.random_forest_feature_importance"><code class="docutils literal notranslate"><span class="pre">random_forest_feature_importance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.random_forest_tree_voting_distribution"><code class="docutils literal notranslate"><span class="pre">random_forest_tree_voting_distribution()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.regression_feature_importance"><code class="docutils literal notranslate"><span class="pre">regression_feature_importance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.regression_feature_weight"><code class="docutils literal notranslate"><span class="pre">regression_feature_weight()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.roc_auc_curve_static"><code class="docutils literal notranslate"><span class="pre">roc_auc_curve_static()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.scatter_2d"><code class="docutils literal notranslate"><span class="pre">scatter_2d()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.scatter_3d"><code class="docutils literal notranslate"><span class="pre">scatter_3d()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.set_global_figsize"><code class="docutils literal notranslate"><span class="pre">set_global_figsize()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.set_global_figsize_for_bokeh"><code class="docutils literal notranslate"><span class="pre">set_global_figsize_for_bokeh()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.set_global_figsize_for_plotly"><code class="docutils literal notranslate"><span class="pre">set_global_figsize_for_plotly()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.tree_feature_importance"><code class="docutils literal notranslate"><span class="pre">tree_feature_importance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.tree_prediction_paths"><code class="docutils literal notranslate"><span class="pre">tree_prediction_paths()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.tree_shap_feature"><code class="docutils literal notranslate"><span class="pre">tree_shap_feature()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.tree_shap_instance"><code class="docutils literal notranslate"><span class="pre">tree_shap_instance()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.tree_shap_summary"><code class="docutils literal notranslate"><span class="pre">tree_shap_summary()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.tree_structure"><code class="docutils literal notranslate"><span class="pre">tree_structure()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Visualization.html#Visualization.xgb_feature_importance"><code class="docutils literal notranslate"><span class="pre">xgb_feature_importance()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="Visualization.html">Visualization Module</a></li>
 </ul>
 </div>
 </section>
